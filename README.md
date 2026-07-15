@@ -1,4 +1,26 @@
+# 🏥 ClinicalRoute AI — Acuity-First Hospital Bed Allocation
 
+> Assign hospital beds by **clinical severity**, not by how profitable a patient's insurance is. An AI system combining the **NEWS2** clinical protocol with a **Random Forest** classifier (92.6% accuracy) to route patients to the right bed — ranked purely by acuity.
+>
+> ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+> ![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)
+> ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
+> ![Healthcare AI](https://img.shields.io/badge/Domain-Healthcare_AI-success?style=flat)
+>
+> ## 🧩 System Architecture
+>
+> ```mermaid
+> flowchart LR
+>     A[Patient Vitals<br/>7 physiological params] --> B[NEWS2 Rule-Based<br/>Scoring]
+>     A --> C[Random Forest<br/>200 trees · 92.6% acc]
+>     B --> D{Agreement<br/>Check}
+>     C --> D
+>     D --> E[Bed Assignment<br/>ICU · Step-Down<br/>General · Observation]
+>     E --> F[Priority Queue<br/>ranked by acuity,<br/>NOT payer type]
+>     F --> G[Flask REST API<br/>/api/assess]
+> ```
+>
+> 
 **Topic 2: Clinical Decision Making and Pattern Recognition in Health Care**
 
 
